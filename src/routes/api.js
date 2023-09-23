@@ -7,3 +7,5 @@ router.get('/hello-get', HelloController.Hello);
 
 // This is my first post routing
 router.post('/hello-post', HelloController.Hello);
+
+module.exports = router;
