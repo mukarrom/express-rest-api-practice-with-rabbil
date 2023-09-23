@@ -1,6 +1,13 @@
-exports.Hello = (req, res) => {
-	res.status(200).json({
+exports.HelloGet = (req, res) => {
+	res.status(202).json({
 		status: 'Success',
-		data: 'Hello this is my first express rest api',
+		data: 'Hello get',
+	});
+};
+
+exports.HelloPost = (req, res) => {
+	res.status(201).json({
+		status: 'Success',
+		data: 'Hello Post',
 	});
 };
