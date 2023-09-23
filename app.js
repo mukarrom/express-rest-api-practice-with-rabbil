@@ -5,3 +5,5 @@ const app = new express();
 
 // we can manage api version from here
 app.use('/api/v1', router);
+
+module.exports = app;
