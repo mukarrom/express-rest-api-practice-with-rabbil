@@ -1,5 +1,7 @@
 const express = require('express');
 const router = require('./src/routes/api');
+const mongoose = require('mongoose');
+
 // instance of express
 const app = new express();
 
@@ -25,6 +27,14 @@ const limiter = rateLimit({
 });
 
 app.use(limiter);
+
+// MongoDb Database connection with mongoose
+main().catch((err) => console.log(err));
+
+async function main() {
+	await mongoose.connect('mongodb://127.0.0.1:27017/test');
+	console.log('MongoDB connected');
+}
 
 // we can manage api version from here
 app.use('/api/v1', router);
