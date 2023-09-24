@@ -1,6 +1,7 @@
 const express = require('express');
 const router = require('./src/routes/api');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 // instance of express
 const app = new express();
@@ -20,6 +21,8 @@ app.use(mongoSanitize());
 app.use(xss());
 app.use(hpp());
 
+app.use(bodyParser.json());
+
 // Request Rate Limiting
 const limiter = rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
@@ -32,7 +35,7 @@ app.use(limiter);
 main().catch((err) => console.log(err));
 
 async function main() {
-	await mongoose.connect('mongodb://127.0.0.1:27017/test');
+	await mongoose.connect('mongodb://127.0.0.1:27017/schools');
 	console.log('MongoDB connected');
 }
 
