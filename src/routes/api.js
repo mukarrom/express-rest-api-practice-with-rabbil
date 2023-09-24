@@ -11,5 +11,6 @@ router.post('/hello-post', HelloController.HelloPost);
 
 // Mongoose
 router.post('/insertStudent', studentsController.InsertData);
+router.get('/readStudents', studentsController.ReadData);
 
 module.exports = router;
